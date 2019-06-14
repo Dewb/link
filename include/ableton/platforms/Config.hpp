@@ -63,7 +63,7 @@ using IoContext =
   platforms::asio::Context<platforms::posix::ScanIpIfAddrs, util::NullLog>;
 
 #elif defined(LINK_PLATFORM_ESP32)
-using Clock = platforms::stl::ClockMonotonic;
+using Clock = platforms::stl::Clock;
 using IoContext =
   platforms::asio::Context<platforms::esp32::ScanIpIfAddrs, util::NullLog>;
 #endif
