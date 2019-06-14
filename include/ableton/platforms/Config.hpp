@@ -34,6 +34,10 @@
 #include <ableton/platforms/asio/Context.hpp>
 #include <ableton/platforms/linux/Clock.hpp>
 #include <ableton/platforms/posix/ScanIpIfAddrs.hpp>
+#elif defined(LINK_PLATFORM_ESP32)
+#include <ableton/platforms/asio/Context.hpp>
+#include <ableton/platforms/stl/Clock.hpp>
+#include <ableton/platforms/esp32/ScanIpIfAddrs.hpp>
 #endif
 
 namespace ableton
@@ -57,6 +61,11 @@ using IoContext =
 using Clock = platforms::linux::ClockMonotonic;
 using IoContext =
   platforms::asio::Context<platforms::posix::ScanIpIfAddrs, util::NullLog>;
+
+#elif defined(LINK_PLATFORM_ESP32)
+using Clock = platforms::stl::ClockMonotonic;
+using IoContext =
+  platforms::asio::Context<platforms::esp32::ScanIpIfAddrs, util::NullLog>;
 #endif
 
 using Controller =
