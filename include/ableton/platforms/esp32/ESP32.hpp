@@ -4,9 +4,9 @@
 #include <byteswap.h>
 
 #ifndef ntohll
-#define ntohll(x) bswap_64(x)
+#define ntohll(x) __bswap_64(x)
 #endif
 
 #ifndef htonll
-#define htonll(x) bswap_64(x)
+#define htonll(x) __bswap_64(x)
 #endif
